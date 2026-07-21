@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Secrets
+.env
+
+# Data artifacts (generated, never committed)
+data/
+*.parquet
+*.sqlite
+*.db
+
+# Tooling caches
+.ruff_cache/
+.pytest_cache/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
