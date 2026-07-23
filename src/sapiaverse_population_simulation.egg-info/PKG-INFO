@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: sapiaverse-population-simulation
+Version: 0.1.0
+Summary: Generative-agent simulation of SF residents voting on a ballot measure
+Requires-Python: >=3.11
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: numpy>=2.4.6
+Requires-Dist: pandas>=3.0.3
+Requires-Dist: pyarrow>=25.0.0
+Requires-Dist: pydantic>=2.7
+Requires-Dist: pydantic-settings>=2.3

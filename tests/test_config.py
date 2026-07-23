@@ -1,6 +1,6 @@
 """Tests for application configuration."""
 
-from src.config.settings import get_settings
+from config.settings import get_settings
 
 
 def test_settings_loads_from_env(monkeypatch):

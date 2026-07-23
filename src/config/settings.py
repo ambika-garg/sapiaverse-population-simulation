@@ -15,7 +15,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    anthropic_api_key: str = Field(..., description="API key for the LLM provider")
+    anthropic_api_key: str | None = Field(default=None, description="API key for the LLM provider")
     census_api_key: str | None = Field(default=None, description="Optional Census API key")
     log_level: str = Field(default="INFO", description="Logging verbosity")
 

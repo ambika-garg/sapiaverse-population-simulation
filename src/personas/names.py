@@ -1,0 +1,88 @@
+"""Name assignment. Deliberately not conditioned on the ethnicity field."""
+
+import numpy as np
+
+FIRST_NAMES = [
+    "Amara",
+    "Andre",
+    "Beatriz",
+    "Caleb",
+    "Camila",
+    "Daniel",
+    "Elena",
+    "Emeka",
+    "Farid",
+    "Grace",
+    "Hana",
+    "Ibrahim",
+    "Isabel",
+    "Jamal",
+    "Jennifer",
+    "Jonas",
+    "Kavya",
+    "Kenji",
+    "Leila",
+    "Lucas",
+    "Maya",
+    "Miguel",
+    "Naomi",
+    "Nikhil",
+    "Olivia",
+    "Omar",
+    "Priya",
+    "Rafael",
+    "Rosa",
+    "Samuel",
+    "Simone",
+    "Tariq",
+    "Theresa",
+    "Victor",
+    "Wei",
+    "Yusuf",
+]
+
+LAST_NAMES = [
+    "Adeyemi",
+    "Alvarez",
+    "Bennett",
+    "Castillo",
+    "Chen",
+    "Delgado",
+    "Duarte",
+    "Ferreira",
+    "Fitzgerald",
+    "Gallagher",
+    "Gupta",
+    "Hoffman",
+    "Ibrahim",
+    "Jackson",
+    "Kaur",
+    "Kim",
+    "Lam",
+    "Lindqvist",
+    "Mendoza",
+    "Nakamura",
+    "Nguyen",
+    "Okonkwo",
+    "Ortega",
+    "Park",
+    "Patel",
+    "Ramirez",
+    "Reyes",
+    "Santos",
+    "Shah",
+    "Silva",
+    "Tanaka",
+    "Thompson",
+    "Vargas",
+    "Walsh",
+    "Whitfield",
+    "Zhang",
+]
+
+
+def assign_names(count: int, rng: np.random.Generator) -> list[str]:
+    """Draw `count` unique full names from the pools."""
+    first = rng.choice(FIRST_NAMES, size=count, replace=False)
+    last = rng.choice(LAST_NAMES, size=count, replace=False)
+    return [f"{given} {family}" for given, family in zip(first, last, strict=True)]
