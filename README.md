@@ -327,33 +327,82 @@ with `n` attached for that reason.
 
 ## Benchmark against reality
 
-Real SF Prop F (2021): **60.8% Yes**. Simulated: **76.7%**. Delta: **+15.9 points**,
-over-predicting support.
+Real SF Prop F (2021): **60.8% Yes**. Simulated: **76.7% Yes**.
+**Delta: +15.9 percentage points** — the simulation over-predicts support.
 
-> The gap is dominated by the model's own disposition rather than by the
-> population. Household incomes across the 30 agents span $0 to $703,000 — a
-> 700-fold range — yet 23 of 30 voted the same way, and the strongest Yes votes
-> include a software developer on $620k and a lawyer on $388k, people with no
-> financial stake in delivery fees. An instruction-tuned model carries a
-> pro-social, anti-corporate prior ("protect small businesses from large
-> platforms") that swamps the persona context it is given. Three smaller effects
-> compound it: the population is drawn from *residents* whereas Prop F was decided
-> by *voters*, an older and more selective group; n=30 carries real sampling noise,
-> measured at 3.3 points between two runs of the same configuration; and agents
-> meet the measure cold, without the campaign messaging or pandemic-era fee-cap
-> history that shaped real ballots. The first change I would make is not to the
-> prompt but to the calibration: run a control with the persona block removed to
-> measure the model's unconditioned prior on this question, then report demographic
-> effects as deviations from that baseline rather than as absolute vote shares — a
-> simulation whose segments barely separate is not yet measuring its population.
+### What the gap is, and what it isn't
 
-**A hypothesis that failed.** I expected to *under*-predict, reasoning that
-residents skew younger and poorer than voters and that a model would surface
-price-control objections. The result went the other way. The residents-vs-voters
-effect is real but was overwhelmed by model disposition — which is why calibration
-is the first fix rather than the fourth.
+The honest position is that I can measure this gap but cannot yet attribute it.
+Four candidate causes are consistent with the data, and this experiment does not
+separate them.
 
----
+**1. Model disposition.** An instruction-tuned model may carry a pro-social,
+anti-corporate prior ("protect small businesses from large platforms") strong
+enough to swamp the persona context. Suggestive: the Yes bloc includes a software
+developer on $620k and a lawyer on $388k, neither with a financial stake in
+delivery fees.
+
+**2. Residents, not voters.** The population is sampled from residents; Prop F was
+decided by voters, who skew older, wealthier and more likely to own their homes.
+
+**3. Sampling noise.** At n=30, two runs of the identical configuration produced
+76.7% and 80.0% — a 3.3-point spread from model sampling alone. Any effect smaller
+than that is invisible at this sample size.
+
+**4. Missing context.** Agents meet the measure cold, without the campaign
+messaging or the pandemic-era temporary fee cap that shaped real ballots.
+
+### Why I stopped short of naming a cause
+
+An earlier draft asserted that demographics barely moved the vote. Checking that
+claim against the data undercut it, in an instructive way:
+
+| Group | n | Mean household income | Median household income |
+|---|---|---|---|
+| Voted No | 7 | $286,561 | $147,000 |
+| Voted Yes | 23 | $186,541 | $140,900 |
+
+By **mean**, No voters are $100k wealthier — a large effect, in the direction
+economic reasoning predicts. By **median**, the gap is $6k — no effect at all. The
+mean is being carried by two agents, a $703k systems manager and a $563k chief
+executive; remove them and the signal disappears.
+
+With seven agents in the minority group, those two readings cannot be
+distinguished. The data does not support "demographics had no effect", and it does
+not support "demographics had an effect" either. It is underpowered for the
+question.
+
+### What I would do next, in order
+
+**1. Raise statistical power before anything else.** Re-run across 5–10 sampling
+seeds, each drawing a different 30 residents, for 150–300 agents in total. This
+costs compute already available and lifts the minority group from 7 to roughly
+40–70, at which point the income comparison becomes interpretable. Nothing below
+this line is trustworthy until it is done.
+
+**2. Test the demographic effect properly.** With that sample, compare medians as
+well as means across income, age, housing tenure and occupation. If income
+separates the groups, demographics are working and cause (1) weakens.
+
+**3. Run an unconditioned control.** Ask the model the same question with the
+persona block removed. If it still answers ~77% Yes, the personas contributed
+nothing and model disposition dominates. If it answers near 50%, the personas
+moved the outcome 27 points and are doing real work. This is the only experiment
+that cleanly separates model prior from population effect.
+
+**4. Apply a likely-voter filter — and check a falsifiable prediction.** Prop F was
+decided by an older, wealthier electorate, and the data hints that wealthier agents
+lean No. If both hold, weighting toward likely voters should push simulated support
+*down*, from 76.7% toward 60.8%. If it does not, one of those two premises is
+wrong, which is itself worth knowing.
+
+**A prediction that failed.** Before running, I expected to *under*-predict, on the
+reasoning that residents skew younger and poorer than voters and that a model would
+surface price-control objections. The result went 15.9 points the other way. That
+reversal is the clearest evidence that my prior about which force dominates was
+untested — which is why calibration, not prompt tuning, is the first thing I would
+change.
+
 
 ## Reflection (Park et al. §4.2, adapted)
 
