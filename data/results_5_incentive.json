@@ -1,0 +1,524 @@
+{
+  "population_size": 30,
+  "model": "llama3.1:8b",
+  "baseline": {
+    "yes": 24,
+    "no": 6,
+    "yes_pct": 80.0,
+    "themes_yes": [
+      [
+        "Support for local small businesses",
+        8
+      ],
+      [
+        "Desire to see more money going back into local restaurants",
+        4
+      ],
+      [
+        "Concern about high food delivery fees affecting personal finances",
+        3
+      ]
+    ],
+    "themes_no": [
+      [
+        "Concerns about economic impact on jobs/commissions",
+        2
+      ],
+      [
+        "Financial independence from cap",
+        3
+      ],
+      [
+        "Concerns about convenience and flexibility",
+        1
+      ]
+    ]
+  },
+  "arm_b": {
+    "yes": 29,
+    "no": 1,
+    "yes_pct": 96.7
+  },
+  "arm_c": {
+    "yes": 24,
+    "no": 6,
+    "yes_pct": 80.0
+  },
+  "benchmark": {
+    "simulated": 80.0,
+    "actual": 60.8,
+    "delta": 19.2
+  },
+  "by_neighborhood": {
+    "Bayview & Hunters Point": {
+      "n": 3,
+      "yes": 3,
+      "no": 0,
+      "yes_pct": 100.0
+    },
+    "Central & Bernal Heights": {
+      "n": 5,
+      "yes": 4,
+      "no": 1,
+      "yes_pct": 80.0
+    },
+    "Chinatown, North Beach & Russian Hill": {
+      "n": 4,
+      "yes": 3,
+      "no": 1,
+      "yes_pct": 75.0
+    },
+    "Ingleside & South Central": {
+      "n": 4,
+      "yes": 3,
+      "no": 1,
+      "yes_pct": 75.0
+    },
+    "Outer Sunset & Inner Sunset": {
+      "n": 3,
+      "yes": 2,
+      "no": 1,
+      "yes_pct": 66.7
+    },
+    "Richmond, Western Addition & Presidio": {
+      "n": 3,
+      "yes": 3,
+      "no": 0,
+      "yes_pct": 100.0
+    },
+    "South of Market & Mission": {
+      "n": 4,
+      "yes": 3,
+      "no": 1,
+      "yes_pct": 75.0
+    },
+    "Western Addition & Marina": {
+      "n": 4,
+      "yes": 3,
+      "no": 1,
+      "yes_pct": 75.0
+    }
+  },
+  "agents": [
+    {
+      "agent_id": "sf-000",
+      "name": "Tariq Ferreira",
+      "age": 38,
+      "neighborhood": "Western Addition & Marina",
+      "occupation": "Registered Nurses",
+      "household_income": 340000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I don't want to see small businesses in my neighborhood struggle anymore with these excessive fees, and it's only fair that the big tech companies help out.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Capping delivery app fees shows we're willing to hold corporations accountable for their impact on our community.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-001",
+      "name": "Farid Alvarez",
+      "age": 52,
+      "neighborhood": "Central & Bernal Heights",
+      "occupation": "Pharmacy Technicians",
+      "household_income": 230000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm tired of seeing my neighbors' small restaurants struggle because of these high delivery fees and I think this cap will help them compete.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "I still believe that capping delivery app fees is a fair way to support local businesses, especially those in my community like my favorite Mexican spot on Cortland Avenue.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-002",
+      "name": "Hana Patel",
+      "age": 22,
+      "neighborhood": "Ingleside & South Central",
+      "occupation": "Security Guards And Gambling Surveillance Officers",
+      "household_income": 142120,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I need the extra cash from my security guard job and I don't want DoorDash taking more of it with their unfair fees.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "I still think this is a fair way to help working-class people like me who are struggling to make ends meet.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-003",
+      "name": "Ibrahim Gupta",
+      "age": 45,
+      "neighborhood": "Central & Bernal Heights",
+      "occupation": "Chief Executives And Legislators",
+      "household_income": 563000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "As a homeowner with a significant mortgage payment, I'd like to see some relief for local restaurants and families who can't afford the soaring food delivery fees any longer.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "I still think that limiting delivery app fees will give small businesses and individuals in this neighborhood a much-needed break.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-004",
+      "name": "Amara Whitfield",
+      "age": 76,
+      "neighborhood": "Chinatown, North Beach & Russian Hill",
+      "occupation": "retired",
+      "household_income": 0,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm concerned about the rising prices of food from my favorite local restaurants being passed on to customers and affecting their business, which is already struggling to compete with big tech companies.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Voting in favor of capping delivery app fees seems like a way for me to support my community's small businesses and keep the prices of food affordable for everyone.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-005",
+      "name": "Jonas Delgado",
+      "age": 43,
+      "neighborhood": "Chinatown, North Beach & Russian Hill",
+      "occupation": "Project Management Specialists",
+      "household_income": 180000,
+      "baseline_vote": "No",
+      "baseline_reason": "I'm concerned that capping fees on food delivery apps will limit the convenience and flexibility I value as a busy professional.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "No",
+      "reflection": "Capping delivery app fees could stifle innovation and hurt small businesses, so I think it's a solution in search of a problem.",
+      "stance": -0.25
+    },
+    {
+      "agent_id": "sf-006",
+      "name": "Rosa Park",
+      "age": 29,
+      "neighborhood": "Western Addition & Marina",
+      "occupation": "Financial And Investment Analysts",
+      "household_income": 164500,
+      "baseline_vote": "No",
+      "baseline_reason": "I'm concerned about the potential long-term impact on my job as a financial analyst if food delivery companies start to cut back on their already-meager commissions for drivers, which could lead to more unemployment and economic instability.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "No",
+      "reflection": "I still believe that capping delivery app fees would unfairly burden small businesses and create unintended consequences that might harm the economy.",
+      "stance": -0.25
+    },
+    {
+      "agent_id": "sf-007",
+      "name": "Victor Silva",
+      "age": 74,
+      "neighborhood": "Ingleside & South Central",
+      "occupation": "retired",
+      "household_income": 280810,
+      "baseline_vote": "No",
+      "baseline_reason": "As I own my home outright and my household income is significantly higher than mine, the 15% cap on food delivery app fees won't affect me financially.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "No",
+      "reflection": "I'm sticking to my vote because as a homeowner with a comfortable household income, I don't see how capping food delivery app fees would personally benefit me or address the issues at hand.",
+      "stance": -0.25
+    },
+    {
+      "agent_id": "sf-008",
+      "name": "Miguel Ramirez",
+      "age": 31,
+      "neighborhood": "South of Market & Mission",
+      "occupation": "Other Managers",
+      "household_income": 363000,
+      "baseline_vote": "No",
+      "baseline_reason": "As someone who earns six figures and can afford to tip generously for food delivery, I think this cap will just drive up prices for restaurants and hurt the entrepreneurs I'm used to seeing succeed in our neighborhood.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "No",
+      "reflection": "I still believe that capping fees would disproportionately affect the very small businesses I care about, and it's not a solution that aligns with my values as an entrepreneur and community member.",
+      "stance": -0.25
+    },
+    {
+      "agent_id": "sf-009",
+      "name": "Grace Ortega",
+      "age": 73,
+      "neighborhood": "Bayview & Hunters Point",
+      "occupation": "retired",
+      "household_income": 29500,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm worried about the high costs of food on our limited budgets and I think capping fees will help my neighbors who are struggling to make ends meet.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Capping delivery app fees will still help reduce the financial burden on low-income families, even if it might hurt some small businesses in the short term.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-010",
+      "name": "Nikhil Zhang",
+      "age": 28,
+      "neighborhood": "Richmond, Western Addition & Presidio",
+      "occupation": "Other Managers",
+      "household_income": 105000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I want to see more of my money going back into the local restaurants and small businesses that I shop at regularly.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Reflecting on it now, I still think capping delivery app fees is a fair way to support our local economy.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-011",
+      "name": "Caleb Jackson",
+      "age": 53,
+      "neighborhood": "Central & Bernal Heights",
+      "occupation": "Elementary And Middle School Teachers",
+      "household_income": 144200,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm concerned about small business owners on my block losing even more money to these outrageous delivery fees and I think capping them will help level the playing field.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Capping delivery app fees is still a necessary step to support our local small businesses, especially in neighborhoods like mine that are struggling to stay vibrant.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-012",
+      "name": "Kenji Nguyen",
+      "age": 58,
+      "neighborhood": "Richmond, Western Addition & Presidio",
+      "occupation": "Bookkeeping, Accounting, And Auditing Clerks",
+      "household_income": 55000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I think capping the delivery fees will help small restaurants and entrepreneurs like my brother-in-law who owns a restaurant in Chinatown, so I'm supporting this measure to boost local businesses.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "No",
+      "reflection": "Capping delivery app fees could actually hurt small businesses that rely heavily on those services to reach new customers.",
+      "stance": -0.1
+    },
+    {
+      "agent_id": "sf-013",
+      "name": "Naomi Bennett",
+      "age": 25,
+      "neighborhood": "South of Market & Mission",
+      "occupation": "Computer Hardware Engineers",
+      "household_income": 484000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm tired of seeing my friends and coworkers getting ripped off by outrageous food delivery fees every time they order from their favorite restaurants.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Voting to cap delivery app fees is a small step towards making our city more equitable, especially for low-income residents who rely on these services.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-014",
+      "name": "Olivia Kaur",
+      "age": 44,
+      "neighborhood": "South of Market & Mission",
+      "occupation": "Financial And Investment Analysts",
+      "household_income": 50000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm concerned about the skyrocketing costs of living in SF and capping delivery app fees will help me save on food expenses as I'm already struggling to make ends meet with my modest income.",
+      "arm_b_vote": "No",
+      "arm_c_vote": "Yes",
+      "reflection": "After voting yes, I realized how much of a small but significant impact it could have on my own finances, and now I feel even more convinced that capping delivery app fees is necessary to address the affordability crisis in SF.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-015",
+      "name": "Simone Chen",
+      "age": 43,
+      "neighborhood": "Ingleside & South Central",
+      "occupation": "Other Educational Instruction and Library Workers",
+      "household_income": 102200,
+      "baseline_vote": "Yes",
+      "baseline_reason": "As someone who values fairness and is concerned about the rising costs of living in San Francisco, I think capping food delivery app fees will help small restaurants and local businesses stay competitive.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "After reflecting on my vote to cap food delivery app fees, I'm actually feeling firmer in my conviction that it's necessary for keeping our local economy sustainable.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-016",
+      "name": "Rafael Reyes",
+      "age": 63,
+      "neighborhood": "Bayview & Hunters Point",
+      "occupation": "Secretaries And Administrative Assistants, Except Legal, Medical, And Executive",
+      "household_income": 75000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I've seen how hard it is for my neighbors to make ends meet and this cap will help them keep more of their money for rent and groceries.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Voting to cap delivery app fees feels like a small step towards creating a more equitable community where everyone can afford the basics.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-017",
+      "name": "Jamal Castillo",
+      "age": 18,
+      "neighborhood": "Bayview & Hunters Point",
+      "occupation": "Recreation Workers",
+      "household_income": 147000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I've had to pay for my friends' DoorDash bills when we hang out because they can't afford it and I think this will help them out.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Voting to cap delivery app fees is what the community needs, especially with all the young folks struggling to make ends meet around here.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-018",
+      "name": "Theresa Santos",
+      "age": 23,
+      "neighborhood": "Ingleside & South Central",
+      "occupation": "Waiters And Waitresses",
+      "household_income": 5000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I need the extra cash from my waitressing job to afford rent and this would mean more tips for me.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "No",
+      "reflection": "Capping delivery app fees is a small step towards fairness, but I still worry it might hurt gig companies like Uber Eats that employ so many friends of mine.",
+      "stance": -0.1
+    },
+    {
+      "agent_id": "sf-019",
+      "name": "Camila Duarte",
+      "age": 57,
+      "neighborhood": "Richmond, Western Addition & Presidio",
+      "occupation": "Industrial Engineers, Including Health And Safety",
+      "household_income": 120000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm sick of watching these companies make a killing off our local restaurants while they struggle to stay afloat.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Voting against higher profits for out-of-touch corporate giants who are taking advantage of small businesses in my community.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-020",
+      "name": "Yusuf Gallagher",
+      "age": 82,
+      "neighborhood": "Outer Sunset & Inner Sunset",
+      "occupation": "retired",
+      "household_income": 24200,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm tired of seeing DoorDash and Uber Eats ripping off my friends who own the Mexican restaurant around the corner from me.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "I still believe that big food delivery companies are taking advantage of small local businesses, especially those like my friend's Mexican restaurant.",
+      "stance": -0.1
+    },
+    {
+      "agent_id": "sf-021",
+      "name": "Wei Kim",
+      "age": 47,
+      "neighborhood": "Western Addition & Marina",
+      "occupation": "Marketing Managers",
+      "household_income": 88000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "As a marketing manager, I see how ridiculous it is that DoorDash and UberEats are making such huge profits off our neighborhood's restaurants without contributing much to the community, so capping their fees seems fair.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "I still think it's unfair for delivery apps to be raking in huge profits at the expense of our local businesses.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-022",
+      "name": "Omar Hoffman",
+      "age": 42,
+      "neighborhood": "Central & Bernal Heights",
+      "occupation": "Lawyers, And Judges, Magistrates, And Other Judicial Workers",
+      "household_income": 388100,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm concerned about the exorbitant commissions these apps charge to restaurants, and capping their fees will help support my favorite local eateries that I frequently order from.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "After reflecting on my vote, I realize that capping delivery app fees is not only beneficial for local businesses but also helps mitigate the rising cost of living in our city.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-023",
+      "name": "Priya Ibrahim",
+      "age": 26,
+      "neighborhood": "Western Addition & Marina",
+      "occupation": "Software Developers",
+      "household_income": 620550,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm willing to limit the profits of those big apps because I don't use them that much anyway and they're taking advantage of my neighbors who work freelance jobs.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Voting to cap delivery app fees felt like a necessary step to protect small businesses in our community from being squeezed out by corporate greed.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-024",
+      "name": "Elena Vargas",
+      "age": 70,
+      "neighborhood": "Outer Sunset & Inner Sunset",
+      "occupation": "retired",
+      "household_income": 140900,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm worried about the impact of high delivery fees on my elderly neighbors and friends who rely on food delivery services to stay healthy and safe at home.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "After voting, I still think it's crucial for low-income seniors in our community to have access to affordable delivery options.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-025",
+      "name": "Samuel Lam",
+      "age": 56,
+      "neighborhood": "Chinatown, North Beach & Russian Hill",
+      "occupation": "Packers And Packagers, Hand",
+      "household_income": 114000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm tired of seeing my favorite restaurants struggle to make ends meet because of those greedy delivery apps that take too much of the pie.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Voting for the cap was a way for me to stand up for the small businesses in our neighborhood, like the family-owned restaurant down the street from us.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-026",
+      "name": "Maya Walsh",
+      "age": 31,
+      "neighborhood": "South of Market & Mission",
+      "occupation": "Graphic Designers",
+      "household_income": 236500,
+      "baseline_vote": "Yes",
+      "baseline_reason": "I'm sick of paying an extra $10 every time I order from DoorDash for my family's late-night dinners.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "Voting yes on capping delivery app fees makes sense because it'll save me and many others some real money.",
+      "stance": 0.25
+    },
+    {
+      "agent_id": "sf-027",
+      "name": "Daniel Shah",
+      "age": 62,
+      "neighborhood": "Central & Bernal Heights",
+      "occupation": "Physicians",
+      "household_income": 400000,
+      "baseline_vote": "No",
+      "baseline_reason": "As a physician with a high household income and no financial burden from food delivery app fees, I'm concerned that capping their revenue will negatively impact the quality of service and incentives for drivers in my neighborhood.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "I still think capping delivery app fees would stifle innovation and hurt local businesses, but now I see how it could also benefit low-income residents who rely on affordable food options.",
+      "stance": -0.25
+    },
+    {
+      "agent_id": "sf-028",
+      "name": "Andre Mendoza",
+      "age": 55,
+      "neighborhood": "Outer Sunset & Inner Sunset",
+      "occupation": "Packers And Packagers, Hand",
+      "household_income": 800,
+      "baseline_vote": "No",
+      "baseline_reason": "I already own my home outright and don't rely on food delivery apps for survival, so the potential costs to me are minimal.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "While I understand that some people in this city struggle financially and might benefit from cheaper food deliveries, I'm not convinced it's a solution to their problems.",
+      "stance": 0.1
+    },
+    {
+      "agent_id": "sf-029",
+      "name": "Lucas Tanaka",
+      "age": 51,
+      "neighborhood": "Chinatown, North Beach & Russian Hill",
+      "occupation": "Computer And Information Systems Managers",
+      "household_income": 703000,
+      "baseline_vote": "Yes",
+      "baseline_reason": "As a long-time San Francisco resident who enjoys dining at local restaurants and appreciates the unique character of our neighborhoods, I believe capping food delivery app fees will help support small businesses and preserve the community's cultural identity.",
+      "arm_b_vote": "Yes",
+      "arm_c_vote": "Yes",
+      "reflection": "After reflecting on my vote to cap delivery app fees, I realize that it aligns with my desire to protect San Francisco's small businesses and vibrant neighborhood culture.",
+      "stance": 0.25
+    }
+  ]
+}

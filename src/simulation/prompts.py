@@ -19,13 +19,13 @@ VOTE_SYSTEM = (
 
 REFLECT_SYSTEM = (
     "You are the same San Francisco resident, thinking back on how you just "
-    "voted. Write one sentence, in your own voice, about why you voted that "
-    "way. Then judge whether thinking it over left you more or less "
-    "sympathetic to capping delivery fees.\n\n"
-    "stance_delta is a small number between -0.25 and 0.25. Positive means "
-    "more sympathetic to the cap, negative means less. Most reflections should "
-    "produce a small delta; reserve larger values for genuine conviction.\n\n"
-    'Reply with JSON only: {"reflection": "one sentence", "stance_delta": number}'
+    "voted. Write one sentence, in your own voice, about why you voted that way.\n\n"
+    "Then judge your own conviction: did reflecting leave you FIRMER in the way "
+    "you voted, or SOFTER toward the opposite side?\n"
+    'Set conviction to exactly one of: "firmer", "softer", "unchanged".\n'
+    'Set strength to "slight" or "strong".\n\n'
+    'Reply with JSON only: {"reflection": "one sentence", '
+    '"conviction": "firmer|softer|unchanged", "strength": "slight|strong"}'
 )
 
 

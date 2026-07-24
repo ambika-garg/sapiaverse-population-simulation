@@ -51,7 +51,11 @@ async def cluster_reasons(client, reasons: Sequence[str]) -> list[tuple[str, int
     numbered = "\n".join(f"{i + 1}. {r}" for i, r in enumerate(reasons))
     payload = await client.complete_json(CLUSTER_SYSTEM, numbered)
     themes = payload.get("themes", [])
-    return [(str(t.get("theme", "")).strip(), int(t.get("count", 0))) for t in themes[:TOP_REASONS]]
+    return [
+        (str(t.get("theme", "")).strip(), int(t.get("count", 0)))
+        for t in themes
+        if int(t.get("count", 0)) > 0
+    ][:TOP_REASONS]
 
 
 def segment_split(

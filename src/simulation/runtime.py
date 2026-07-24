@@ -5,6 +5,7 @@ parallelisable and testable with a fake client.
 """
 
 import logging
+from typing import Literal
 
 from llm.client import LLMError
 from personas.models import MAX_STANCE_DELTA, Persona, Reflection, Vote
@@ -13,10 +14,10 @@ from simulation.prompts import build_reflection_prompt, build_vote_prompt
 
 logger = logging.getLogger(__name__)
 
-VALID_VOTES = {"yes": "Yes", "no": "No"}
+VALID_VOTES: dict[str, Literal["Yes", "No"]] = {"yes": "Yes", "no": "No"}
 
 
-def _normalise_vote(raw: object) -> str:
+def _normalise_vote(raw: object) -> Literal["Yes", "No"]:
     """Coerce the model's vote into the exact literal our schema allows."""
     text = str(raw).strip().lower().rstrip(".")
     if text not in VALID_VOTES:
@@ -42,18 +43,19 @@ async def decide(
     )
 
 
-async def reflect(client, persona: Persona, vote: Vote) -> Reflection:
-    """Ask one agent to reflect on the vote it just cast."""
+CONVICTION_SIGN = {"firmer": 1.0, "softer": -1.0, "unchanged": 0.0}
+STRENGTH_MAGNITUDE = {"slight": 0.10, "strong": 0.25}
+
+
+async def reflect(client, persona, vote):
     system, user = build_reflection_prompt(persona, vote.vote, vote.reason)
     payload = await client.complete_json(system, user)
 
-    try:
-        delta = float(payload.get("stance_delta", 0.0))
-    except (TypeError, ValueError):
-        delta = 0.0
-
-    # The model proposes; we bound. Stance can never run away.
-    delta = max(-MAX_STANCE_DELTA, min(MAX_STANCE_DELTA, delta))
+    # The vote supplies the sign; conviction says whether to move with or against it.
+    vote_sign = 1.0 if vote.vote == "Yes" else -1.0
+    conviction = CONVICTION_SIGN.get(str(payload.get("conviction", "")).lower(), 0.0)
+    size = STRENGTH_MAGNITUDE.get(str(payload.get("strength", "")).lower(), 0.10)
+    delta = max(-MAX_STANCE_DELTA, min(MAX_STANCE_DELTA, vote_sign * conviction * size))
 
     return Reflection(
         agent_id=persona.agent_id,
