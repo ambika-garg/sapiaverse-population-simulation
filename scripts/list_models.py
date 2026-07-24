@@ -6,6 +6,7 @@ Usage:
     uv run python scripts/list_models.py cerebras  # queries Cerebras directly
 """
 
+import os
 import sys
 
 import httpx
@@ -51,8 +52,8 @@ def main() -> None:
     target = sys.argv[1].lower() if len(sys.argv) > 1 else None
     provider = PROVIDER_ALIASES.get(target or settings.llm_provider.lower(), "active")
 
-    gemini_key = "AQ.Ab8RN6Jt6BLzwi2JggPlMW6o67QCBnezDwEkrqFpt2VA6wI9dw"
-    cerebras_key = "csk-ktpd2hevcr56t6vptwvh3tedfm65c8rwpr6rh5dxfj9etpy8"
+    gemini_key = os.environ.get("GEMINI_API_KEY", "")
+    cerebras_key = os.environ.get("CEREBRAS_API_KEY", "")
 
     if provider == "gemini":
         key = gemini_key if target else settings.llm_api_key
