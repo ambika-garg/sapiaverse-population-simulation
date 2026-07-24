@@ -43,3 +43,37 @@ class Persona(BaseModel):
     household_income: int
     housing: str
     ocean: OceanProfile
+
+
+# ---------------------------------------------------------------------------
+# Stance + Vote + Reflection
+# ---------------------------------------------------------------------------
+
+from typing import Literal  # noqa: E402 — intentional late import for grouping
+
+STANCE_FLOOR: float = -1.0
+STANCE_CEILING: float = 1.0
+MAX_STANCE_DELTA: float = 0.25
+INITIAL_STANCE: float = 0.0
+
+
+def clamp_stance(value: float) -> float:
+    """Keep a stance value inside [-1, 1] regardless of the input magnitude."""
+    return max(STANCE_FLOOR, min(STANCE_CEILING, value))
+
+
+class Vote(BaseModel):
+    """One agent's decision in one scenario."""
+
+    agent_id: str
+    vote: Literal["Yes", "No"]
+    reason: str
+    stance_at_vote: float = INITIAL_STANCE
+
+
+class Reflection(BaseModel):
+    """A post-vote reflection and its bounded stance nudge."""
+
+    agent_id: str
+    text: str
+    stance_delta: float = Field(ge=-MAX_STANCE_DELTA, le=MAX_STANCE_DELTA)

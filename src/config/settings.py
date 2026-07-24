@@ -18,6 +18,11 @@ class Settings(BaseSettings):
     anthropic_api_key: str | None = Field(default=None, description="API key for the LLM provider")
     census_api_key: str | None = Field(default=None, description="Optional Census API key")
     log_level: str = Field(default="INFO", description="Logging verbosity")
+    llm_model: str = Field(..., description="Model identifier")
+    llm_api_key: str = Field(..., description="Provider API key")
+    llm_base_url: str = Field(..., description="OpenAI-compatible base URL")
+    llm_temperature: float = Field(default=0.7)
+    llm_max_concurrency: int = Field(default=3)
 
 
 @lru_cache
